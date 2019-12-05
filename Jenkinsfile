@@ -12,7 +12,7 @@ pipeline {
         stage('Test'){
             steps {
                 sh 'make check'
-                junit 'reports/**/*.xml' 
+                junit 'reports/my-app/pom.xml' 
             }
         }
         stage('Deploy') {
