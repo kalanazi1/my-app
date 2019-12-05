@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'echo Thsi is a Building Step'
+                sh 'echo mvn package'
             }
         }
     }
