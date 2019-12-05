@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'https://github.com/kalanazi1/my-app'
+                sh 'echo mvn package'
             }
         }
         stage('Test') { 
