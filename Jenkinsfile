@@ -1,9 +1,12 @@
 pipeline {
     agent any 
-    stages {
-        stage('Build') { 
+        tools { 
+        maven 'Maven 3.3.9' 
+        jdk 'jdk8' 
+    }
+     stage ('Build') {
             steps {
-                sh echo 'mvn package'
+                echo 'This is a minimal pipeline.'
             }
         }
     }
