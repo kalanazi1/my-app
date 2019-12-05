@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'echo first step'
+                sh 'https://github.com/kalanazi1/my-app'
             }
         }
         stage('Test') { 
