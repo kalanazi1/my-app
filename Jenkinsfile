@@ -1,24 +1,24 @@
-pipeline { 
-    agent any 
-    options {
-        skipStagesAfterUnstable()
-    }
-    stages {
-        stage('Build') { 
-            steps { 
-                sh 'make' 
-            }
-        }
-        stage('Test'){
-            steps {
-                sh 'make check'
-                junit 'reports/my-app/pom.xml' 
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'make publish'
-            }
-        }
-    }
+
+pipeline {
+agent any
+stages {
+stage ('build') {
+...
+}
+stage ('test: integration-&-quality') {
+...
+}
+stage ('test: functional') {
+...
+}
+stage ('test: load-&-security') {
+...
+}
+stage ('approval') {
+...
+}
+stage ('deploy:prod') {
+...
+}
+}
 }
