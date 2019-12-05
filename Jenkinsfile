@@ -1,19 +1,15 @@
-pipeline{
-    agent any
-    
-    environment{
-        PATH = "/opt/maven3/bin:$PATH"
-    }
-    stages{
-        stage("Git Checkout"){
-            steps{
-                git credentialsId: 'github', url: 'https://github.com/kalanazi1/my-app'
+pipeline {
+    agent any 
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'echo first step'
             }
         }
-        stage("Maven Build"){
-            steps{
-                sh "mvn clean package"
+        stage('Test') { 
+            steps {
+                sh 'echo testing step'
             }
         }
     }
-}   
+}
