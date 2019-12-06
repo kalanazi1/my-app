@@ -1,19 +1,13 @@
 pipeline {
-    agent any 
-    
-    environment{
-        PATH = "/opt/maven/bin:$PATH"
+  agent any
+  tools {
+    maven 'M3'
+  }
+  stages {
+    stage('Build') {
+      steps {
+        sh 'mvn -B -DskipTests clean package'
+      }
     }
-    stages {
-        stage('Build') { 
-            steps {
-                sh "mvn clean package"
-            }
-        }
-        stage('Test') { 
-            steps {
-                sh 'echo testing step'
-            }
-        }
-    }
+  }
 }
