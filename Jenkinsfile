@@ -1,15 +1,14 @@
 pipeline {
     agent any 
-    stages {
-        stage('Build') { 
-            steps {
-                sh 'echo first step'
-            }
-        }
-        stage('Test') { 
-            steps {
-                sh 'echo testing step'
-            }
-        }
+    tool {
+          jdk "Java-1.8"
+          maven "Maven-3.6.3"
     }
-}
+    
+    stage {
+        stage('Clone sources'){
+            steps {
+                git url: 'https://github.com/kalanazi1/my-app'
+            
+            }
+        }
