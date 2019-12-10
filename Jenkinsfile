@@ -9,7 +9,6 @@ pipeline {
     stage("Testing") {
       parallel {
         stage("Unit Tests") {
-          agent { docker 'JDK' }
           steps {
             sh 'maven'
            }
