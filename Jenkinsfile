@@ -5,7 +5,7 @@ pipeline {
     }
 stage('Build and publish') {
   steps {
-    sh "mvn -B -s settings.xml deploy"
+    sh "mvn -B -s POM.xml deploy"
   }
 }
 
