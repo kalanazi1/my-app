@@ -1,11 +1,12 @@
 pipeline {
     agent any 
-    stages {
-    stage("Build") {
-            environment {
-                MVN_COMMAND = "mvn clean package"
-                TEST_REPORTS = "target/surefire-reports/*.xml"
-            }
+    
+stage('Build and publish') {
+
+  steps {
+    sh "mvn -B -s settings.xml deploy"
+  }
+        }
         stage('Test') { 
             steps {
                 sh 'echo testing step'
