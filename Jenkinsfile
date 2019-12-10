@@ -1,6 +1,5 @@
 node {
-  Stage ('SCM Checkout'){
-    
+  Stage ('SCM Checkout'){ 
    git 'https://github.com/kalanazi1/my-app'
   }
   Stage ('Compile-Package'){
