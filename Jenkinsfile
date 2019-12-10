@@ -9,9 +9,9 @@ pipeline {
     stage("Testing") {
       parallel {
         stage("Unit Tests") {
-          agent { docker 'openjdk:7-jdk-alpine' }
+          agent { docker 'JDK' }
           steps {
-            sh 'java -version'
+            sh 'maven'
            }
 
         }
