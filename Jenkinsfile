@@ -1,4 +1,8 @@
 pipeline {
+ agent any
+    options {
+        skipStagesAfterUnstable()
+    }
  Stages{
   Stage ('SCM Checkout'){ 
    steps{
