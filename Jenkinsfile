@@ -1,18 +1,19 @@
 pipeline {
-    agent any 
+  agent any
+  stages {
+    stage("Build") {
+      steps {
+        sh 'mvn -v'
+      }
+    }
+    stage("Testing") {
+      parallel {
+        stage("Unit Tests") {
+          agent { docker 'openjdk:7-jdk-alpine' }
+          steps {
+            sh 'java -version'
+           }
 
-    stages {
-        stage('Build Assets') {
-            agent any 
-            steps {
-                echo 'Building'
-            }
-        }
-        stage('Test') {
-            agent any
-            steps {
-                echo 'Testing stuff'
-            }
         }
     }
 }
