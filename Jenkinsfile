@@ -1,18 +1,8 @@
-pipeline {
-  agent any
-  stages {
-    stage("Build") {
-      steps {
-        sh 'mvn -v'
-      }
-    }
-    stage("Testing") {
-      parallel {
-        stage("Unit Tests") {
-          steps {
-            sh 'maven'
-           }
-
-        }
-    }
+node {
+  Stage ('SCM Checkout'){
+   git 'https://github.com/kalanazi1/my-app'
+  }
+  Stage ('Compile-Package'){
+   sh 'mvn package'
+  }
 }
