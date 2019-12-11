@@ -8,6 +8,10 @@ pipeline {
                 echo "PATH = ${PATH}"
                 echo "M2_HOME = ${M2_HOME}"
 		'''
+		    def mvn_version = 'M3'
+withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+  //sh "mvn clean package"
+}
             }
            
         }
