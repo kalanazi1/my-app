@@ -4,16 +4,16 @@ pipeline {
     stages {
         stage('Initialize') {
             steps {
+		    def mvn_version = 'M3'
+withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+  //sh "mvn clean package"
+}
 		sh '''    
                 echo "PATH = ${PATH}"
                 echo "M2_HOME = ${M2_HOME}"
 		'''
 	    }
-		steps{
-		    def mvn_version = 'M3'
-withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
-  //sh "mvn clean package"
-}}
+		
            
         }
         stage ('SCM Checkout'){ 
