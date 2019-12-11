@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Initialize') {
             steps {
-		    def mvn_version = 'M3'
-withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+		    //def mvn_version = 'M3'
+//withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
   //sh "mvn clean package"
 }
 		sh '''    
