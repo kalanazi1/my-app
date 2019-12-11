@@ -9,6 +9,12 @@ pipeline {
             }
            
         }
+        stage ('SCM Checkout'){ 
+   				steps{
+   					git 'https://github.com/kalanazi1/my-app'
+   					}
+					mvnHome = tool 'M3'
+  						}
         stage('Build') { 
             steps { 
                     sh  'mvn clean package'
