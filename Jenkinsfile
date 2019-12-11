@@ -9,12 +9,11 @@ pipeline {
                 echo "M2_HOME = ${M2_HOME}"
 		'''
 	    }
-		Steps{
+		steps{
 		    def mvn_version = 'M3'
 withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
   //sh "mvn clean package"
 }}
-            }
            
         }
         stage ('SCM Checkout'){ 
