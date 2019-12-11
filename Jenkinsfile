@@ -13,7 +13,7 @@ pipeline {
    				steps{
    					git 'https://github.com/kalanazi1/my-app'
    					}
-					mvnHome = tool 'M3'
+					//mvnHome = tool 'M3'
   						}
         stage('Build') { 
             steps { 
