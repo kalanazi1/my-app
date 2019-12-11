@@ -21,8 +21,12 @@ pipeline {
         stage ('Build') {
             steps {
                 sh 'mvn package' 
-		    sh 'test'
+	    	}
             }
+	    stage('Test') {
+		    steps {
+			    sh 'mvn test'
+	    }
             post {
                 success {
                     junit 'target/surefire-reports/**/*.xml' 
