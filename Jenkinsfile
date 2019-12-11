@@ -15,37 +15,18 @@ pipeline {
                 echo "PATH = ${PATH}"
                 echo "M2_HOME = ${M2_HOME}"
 		'''
-	    }
-		
-           
-        }
-        stage ('SCM Checkout'){ 
-   				steps{
-   					git 'https://github.com/kalanazi1/my-app'
-   					}
-					//mvnHome = tool 'M3'
-  						}
-        stage('Build') { 
-            steps { 
-                    sh  'mvn package'
-                    }
-                
             }
-        
-        stage('Test') {
+        }
+
+        stage ('Build') {
             steps {
-                sh 'mvn --version'
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
             }
             post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
+                success {
+                    junit 'target/surefire-reports/**/*.xml' 
                 }
             }
-        } 
-	stage('Deliver') {
-		steps {
-			sh './jenkins/scripts/deliver.sh'
-		}
-	}
+        }
     }
-}		
+}
